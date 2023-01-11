@@ -1,0 +1,44 @@
+{
+  "name": "lexical-image",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint --ext .jsx,.js,.ts,.tsx src/",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lexical/react": "^0.7.4",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mobily/ts-belt": "^3.13.1",
+    "jotai": "^1.12.0",
+    "lexical": "^0.7.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.52",
+    "@types/react-dom": "17.0.18",
+    "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-github": "^4.4.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
+    "eslint-plugin-unicorn": "^44.0.2",
+    "prettier": "^2.7.1",
+    "typescript": "^4.9.3",
+    "vite": "^3.1.0"
+  }
+}
