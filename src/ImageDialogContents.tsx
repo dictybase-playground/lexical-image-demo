@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from "react"
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext"
 import {
   Button,
   CardHeader,
@@ -10,17 +11,26 @@ import {
 } from "@material-ui/core"
 import { useSetAtom } from "jotai"
 import dialogOpenAtom from "./state"
+import { INSERT_IMAGE_COMMAND } from "./plugins/ImagePlugin"
 
-const TableDialogContents = () => {
+const ImageDialogContents = () => {
+  const [editor] = useLexicalComposerContext()
   const setIsDialogOpen = useSetAtom(dialogOpenAtom)
   const [url, setUrl] = useState("")
+  const [altText, setAltText] = useState("")
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleUrlChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
     setUrl(value)
   }
 
+  const handleAltTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target
+    setAltText(value)
+  }
+
   const handleConfirm = () => {
+    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { url, altText })
     setIsDialogOpen(false)
   }
 
@@ -34,7 +44,15 @@ const TableDialogContents = () => {
               fullWidth
               label="Image URL"
               value={url}
-              onChange={handleChange}
+              onChange={handleUrlChange}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              fullWidth
+              label="Alt Text"
+              value={altText}
+              onChange={handleAltTextChange}
             />
           </Grid>
         </Grid>
@@ -46,4 +64,4 @@ const TableDialogContents = () => {
   )
 }
 
-export default TableDialogContents
+export default ImageDialogContents

@@ -5,6 +5,7 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary"
 import { ListItemNode, ListNode } from "@lexical/list"
 import { HeadingNode, QuoteNode } from "@lexical/rich-text"
 import { Grid, Paper, makeStyles } from "@material-ui/core"
+import ImagePlugin from "./plugins/ImagePlugin"
 import ImageNode from "./nodes/ImageNode"
 import ToolbarV7Plugin from "./Toolbar"
 import {
@@ -47,6 +48,7 @@ const EditorV8 = () => {
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
+      <ImagePlugin />
       <Grid container direction="column">
         <Grid item>
           <ToolbarV7Plugin />
