@@ -30,7 +30,15 @@ const ImageDialogContents = () => {
   }
 
   const handleConfirm = () => {
-    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { source: url, altText })
+    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { source: url, alt: altText })
+    setIsDialogOpen(false)
+  }
+
+  const handleUseSample = () => {
+    editor.dispatchCommand(INSERT_IMAGE_COMMAND, {
+      source: "src/assets/sample.jpg",
+      alt: altText,
+    })
     setIsDialogOpen(false)
   }
 
@@ -57,6 +65,9 @@ const ImageDialogContents = () => {
           </Grid>
         </Grid>
       </CardContent>
+      <CardActions>
+        <Button onClick={handleUseSample}> Insert Sample </Button>
+      </CardActions>
       <CardActions>
         <Button onClick={handleConfirm}> Confirm </Button>
       </CardActions>
