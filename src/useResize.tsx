@@ -123,13 +123,8 @@ export const useResize = (
     )
   }
 
-  /**
-   * Initializes values used for calculating new image dimensions during mousemove
-   * and adds the appropriate mousemove and mouseup event listeners
-   * @param event
-   * @param direction
-   * @returns
-   */
+  // Initializes values used for calculating new image dimensions during mousemove
+  // and adds the appropriate mousemove and mouseup event listeners
   const onMouseDown = (
     event: React.MouseEvent<HTMLDivElement>,
     direction: Direction,
