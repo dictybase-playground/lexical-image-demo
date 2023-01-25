@@ -30,7 +30,7 @@ const ImageDialogContents = () => {
   }
 
   const handleConfirm = () => {
-    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { url, altText })
+    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { source: url, altText })
     setIsDialogOpen(false)
   }
 

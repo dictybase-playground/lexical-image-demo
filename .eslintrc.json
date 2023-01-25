@@ -32,12 +32,15 @@
     }
   },
   "rules": {
-    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
     "import/no-unresolved": "error",
+    "no-underscore-dangle": "off",
+    "lines-between-class-members": "off",
     "quotes": ["off", "single"],
     "semi": ["error", "never"],
     "no-shadow": "off",
     "no-unused-vars": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",

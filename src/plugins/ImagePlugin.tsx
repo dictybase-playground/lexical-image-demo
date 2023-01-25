@@ -5,10 +5,10 @@ import ImageNode from "../nodes/ImageNode"
 
 type InsertImagePayload = {
   source: string
-  altText: string
+  alt: string
 }
 
-export const INSERT_IMAGE_COMMAND = createCommand()
+export const INSERT_IMAGE_COMMAND = createCommand<InsertImagePayload>()
 
 const ImagePlugin = () => {
   const [editor] = useLexicalComposerContext()
@@ -20,9 +20,13 @@ const ImagePlugin = () => {
 
     const unregisterInsertImageCommand = editor.registerCommand(
       INSERT_IMAGE_COMMAND,
-      ({ source, altText }: InsertImagePayload) => {
-        const imageNode = new ImageNode(source, altText)
-        console.log("inserting image node?")
+      ({ source, alt }: InsertImagePayload) => {
+        const imageNode = new ImageNode({
+          source,
+          alt,
+          width: 250,
+          height: 250,
+        })
         $insertNodes([imageNode])
         return true
       },
