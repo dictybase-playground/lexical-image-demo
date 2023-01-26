@@ -10,6 +10,12 @@ export type Direction =
   | "se"
   | "sw"
 
+type ResizeOptions = {
+  handleResize: (width: number, height: number) => void
+  handleResizeStart?: () => void
+  handleResizeEnd?: () => void
+}
+
 export type MouseMoveHandlerCreator = (
   initialValues: {
     initialX: number
@@ -101,7 +107,7 @@ const directionToHandler = new Map<Direction, MouseMoveHandlerCreator>([
  */
 export const useResize = (
   imageContainer: HTMLDivElement,
-  handleResize: (width: number, height: number) => void,
+  { handleResizeStart, handleResize, handleResizeEnd }: ResizeOptions,
 ) => {
   // moveHandlerReference is used to track which moveHandler is currently registered
   // so it can be removed by onMouseUp.
@@ -121,6 +127,10 @@ export const useResize = (
       "mousemove",
       moveHandlerReference.current.handler,
     )
+    // setTimeout here allows other resize-related click event listeners
+    // to run before handleResizeEnd. If handleResizeEnd controls an "isResizing"
+    // state, other click listeners are allowed to fire before the state changes.
+    if (handleResizeEnd) setTimeout(handleResizeEnd, 0)
   }
 
   // Initializes values used for calculating new image dimensions during mousemove
@@ -130,6 +140,7 @@ export const useResize = (
     direction: Direction,
   ) => {
     event.preventDefault()
+    if (handleResizeStart) handleResizeStart()
     const { width: initialWidth, height: initialHeight } =
       imageContainer.getBoundingClientRect()
 

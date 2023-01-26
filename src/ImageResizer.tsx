@@ -15,6 +15,8 @@ const directions: Direction[] = [
 export type ImageResizerProperties = {
   imageContainer: HTMLDivElement
   handleResize: (width: number, height: number) => void
+  handleResizeStart?: () => void
+  handleResizeEnd?: () => void
 }
 
 /**
@@ -24,11 +26,17 @@ export type ImageResizerProperties = {
  * @param imageContainer a reference to the parent container
  */
 const ImageResizer = ({
+  handleResizeStart,
   handleResize,
+  handleResizeEnd,
   imageContainer,
 }: ImageResizerProperties) => {
   const classes = useResizerStyles()
-  const { onMouseDown } = useResize(imageContainer, handleResize)
+  const { onMouseDown } = useResize(imageContainer, {
+    handleResizeStart,
+    handleResize,
+    handleResizeEnd,
+  })
   return (
     <>
       {directions.map((direction) => (
