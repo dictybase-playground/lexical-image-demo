@@ -6,7 +6,6 @@ import { ListItemNode, ListNode } from "@lexical/list"
 import { HeadingNode, QuoteNode } from "@lexical/rich-text"
 import { Grid, Paper, makeStyles } from "@material-ui/core"
 import ImagePlugin from "./plugins/ImagePlugin"
-import TreeViewPlugin from "./plugins/TreeViewPlugin"
 import ImageNode from "./nodes/ImageNode"
 import ToolbarV7Plugin from "./Toolbar"
 import {
@@ -69,7 +68,6 @@ const EditorV8 = () => {
             />
           </Paper>
         </Grid>
-        <TreeViewPlugin />
       </Grid>
     </LexicalComposer>
   )
