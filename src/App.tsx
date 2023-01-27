@@ -5,6 +5,7 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary"
 import { ListItemNode, ListNode } from "@lexical/list"
 import { HeadingNode, QuoteNode } from "@lexical/rich-text"
 import { Grid, Paper, makeStyles } from "@material-ui/core"
+import LocalPersistencePlugin from "./plugins/LocalPersistencePlugin"
 import ImagePlugin from "./plugins/ImagePlugin"
 import ImageNode from "./nodes/ImageNode"
 import ToolbarV7Plugin from "./Toolbar"
@@ -12,6 +13,7 @@ import {
   useEditorInputStyles,
   useEditorPlaceholderStyles,
 } from "./useEditorStyles"
+import usePersistencePluginStyles from "./usePersistencePluginStyles"
 import "./editor.css"
 
 const usePaperStyles = makeStyles({
@@ -44,6 +46,7 @@ const initialConfig = {
 const EditorV8 = () => {
   const inputClasses = useEditorInputStyles()
   const placeholderClasses = useEditorPlaceholderStyles()
+  const persistencePluginStyles = usePersistencePluginStyles()
   const paperClasses = usePaperStyles()
 
   return (
@@ -67,6 +70,9 @@ const EditorV8 = () => {
               }
             />
           </Paper>
+        </Grid>
+        <Grid item className={persistencePluginStyles.root}>
+          <LocalPersistencePlugin />
         </Grid>
       </Grid>
     </LexicalComposer>
