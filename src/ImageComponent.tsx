@@ -1,15 +1,17 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
+import { Provider, useAtomValue } from "jotai"
 import { $getNodeByKey, CLICK_COMMAND, COMMAND_PRIORITY_LOW } from "lexical"
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext"
 import { useLexicalNodeSelection } from "@lexical/react/useLexicalNodeSelection"
+import { ImageDimensionsAtom, isResizingAtom } from "./state"
 import Image from "./Image"
 
 export type ImageComponentProperties = {
   src: string
   nodeKey: string
-  alt?: string
-  initialHeight: number
   initialWidth: number
+  initialHeight: number
+  alt?: string
   fit: string
   duration: number
   easing: string
@@ -18,16 +20,16 @@ export type ImageComponentProperties = {
 const ImageComponent = ({
   src,
   alt,
-  nodeKey,
-  initialHeight,
   initialWidth,
+  initialHeight,
+  nodeKey,
   fit,
   easing,
   duration,
 }: ImageComponentProperties) => {
   const imageReference = useRef<HTMLImageElement>(null)
   const [editor] = useLexicalComposerContext()
-  const [isResizing, setIsResizing] = useState(false)
+  const isResizing = useAtomValue(isResizingAtom)
   const [isSelected, setSelected, clearSelection] =
     useLexicalNodeSelection(nodeKey)
 
@@ -68,20 +70,21 @@ const ImageComponent = ({
     }
   })
   return (
-    <Image
-      src={src}
-      imageReference={imageReference}
-      alt={alt}
-      initialHeight={initialHeight}
-      initialWidth={initialWidth}
-      fit={fit}
-      duration={duration}
-      easing={easing}
-      isResizing={isSelected}
-      onResizeStart={() => setIsResizing(true)}
-      onResizeEnd={() => setIsResizing(false)}
-      onResize={onResize}
-    />
+    <Provider
+      initialValues={[
+        [ImageDimensionsAtom, { width: initialWidth, height: initialHeight }],
+      ]}>
+      <Image
+        src={src}
+        imageReference={imageReference}
+        alt={alt}
+        fit={fit}
+        duration={duration}
+        easing={easing}
+        isSelected={isSelected}
+        onResize={onResize}
+      />
+    </Provider>
   )
 }
 
