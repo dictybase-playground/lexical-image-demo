@@ -45,13 +45,13 @@ const ImageComponent = ({
     const unregisterCommandListener = editor.registerCommand(
       CLICK_COMMAND,
       (payload: MouseEvent) => {
-        // Click commands are dispatched every time a click event occurs anywhere on the root element.
-        // When that event occurs check if the event target matches the image dom element.
-
         // This prevents the selection from being cleared after resizing the image
         // since returning true will prevent other CLICK_COMMAND listeners. There must
         // be another command listener registered that clears the editor selection.
         if (isResizing) return true
+
+        // Click commands are dispatched every time a click event occurs anywhere on the root element.
+        // When that event occurs, check if the event target matches the image dom element.
         if (payload.target === imageReference.current) {
           // If a different image is already selected, clearSelection() will remove it
           // from the editor selection.

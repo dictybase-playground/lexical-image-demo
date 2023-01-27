@@ -120,8 +120,8 @@ export const useResize = (
       moveHandlerReference.current.handler,
     )
     // setTimeout here allows other resize-related click event listeners
-    // to run before handleResizeEnd. If handleResizeEnd controls an "isResizing"
-    // state, other click listeners are allowed to fire before the state changes.
+    // to run before isResizing is set to false. This prevents the ImageComponent
+    // from being deselected immediately after resizing the image.
     setTimeout(() => setIsResizing(false), 0)
   }
 
