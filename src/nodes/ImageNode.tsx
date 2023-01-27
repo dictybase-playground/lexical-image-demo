@@ -125,7 +125,6 @@ class ImageNode extends DecoratorNode<JSX.Element> {
   }
 
   decorate() {
-    console.log(this.width, this.height)
     return (
       <ImageComponent
         nodeKey={this.__key}

@@ -97,7 +97,7 @@ const directionToHandler = new Map<Direction, MouseMoveHandlerCreator>([
  * A React hook that returns a mousedown event handler used to resize elements
  *
  * @category Hooks
- * @param onResize a callback function used to set the new dimensions of the parent element.
+ * @param onResize a function for side effects - Used to update ImageNode width and height
  * @param imageContainer a reference to the parent container
  * @returns an event handler for mousedown events
  */
