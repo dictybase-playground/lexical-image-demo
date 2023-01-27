@@ -1,5 +1,8 @@
 import { atom } from "jotai"
 
-const dialogOpenAtom = atom(false)
+export type ButtonStates = "NORMAL" | "LOADING" | "DONE" | "ERROR"
 
-export default dialogOpenAtom
+export const ButtonStateAtom = atom<ButtonStates>("NORMAL")
+export const ImageDimensionsAtom = atom({ width: 500, height: 500 })
+export const dialogOpenAtom = atom(false)
+export const isResizingAtom = atom(false)
