@@ -65,6 +65,7 @@ const ImageComponent = ({
       },
       COMMAND_PRIORITY_LOW,
     )
+
     return () => {
       unregisterCommandListener()
     }

@@ -1247,7 +1247,7 @@
   resolved "https://registry.yarnpkg.com/@lexical/plain-text/-/plain-text-0.7.6.tgz#19fc0aa560dbc06604904662c11096f5a9140048"
   integrity sha512-SBD93A9r+z6LasgRwzmcA769ryS53GC+R1rcJm5UcBaRPLbUdPmD24A8NfGbHKZhpoQA7WWZbIVHXI/ug3HZKw==
 
-"@lexical/react@^0.7.4":
+"@lexical/react@^0.7.6":
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/@lexical/react/-/react-0.7.6.tgz#3ab78eeb03b855cae412193ccc3b35e0301606df"
   integrity sha512-zp6XP5xxp/gdAiXuNhkKZSGoHPPXlv7MiQQNFCR6owG0NjPgmven53C/7RzkNKuMZpxiBH5PE0sfvaim32carg==
@@ -3482,7 +3482,7 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-lexical@^0.7.4:
+lexical@^0.7.6:
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/lexical/-/lexical-0.7.6.tgz#62ef4a89ed4a22442de25866e7653954506df4a3"
   integrity sha512-+pca6OVSZSO5sH2dxLPWDJuspu0ZWMyc/s80JoNTknkiGgsxRLfmxGVEorfvzO2HVbNjiDwsb6Rc+TSku1XNgA==

@@ -30,7 +30,12 @@ const ImageDialogContents = () => {
   }
 
   const handleConfirm = () => {
-    editor.dispatchCommand(INSERT_IMAGE_COMMAND, { source: url, alt: altText })
+    editor.dispatchCommand(INSERT_IMAGE_COMMAND, {
+      source: url,
+      alt: altText,
+      width: 250,
+      height: 250,
+    })
     setIsDialogOpen(false)
   }
 
@@ -38,6 +43,8 @@ const ImageDialogContents = () => {
     editor.dispatchCommand(INSERT_IMAGE_COMMAND, {
       source: "src/assets/sample.jpg",
       alt: altText,
+      width: 250,
+      height: 250,
     })
     setIsDialogOpen(false)
   }

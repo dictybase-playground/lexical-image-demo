@@ -1,4 +1,4 @@
-import { useSetAtom } from "jotai"
+import { useAtom, useSetAtom } from "jotai"
 import React, { useRef } from "react"
 import { ImageDimensionsAtom, isResizingAtom } from "./state"
 
@@ -110,7 +110,7 @@ export const useResize = (
   const moveHandlerReference = useRef<{
     handler: ((event: MouseEvent) => void) | null | undefined
   }>({ handler: null })
-  const setDimensions = useSetAtom(ImageDimensionsAtom)
+  const [dimensions, setDimensions] = useAtom(ImageDimensionsAtom)
   const setIsResizing = useSetAtom(isResizingAtom)
 
   const onMouseUp = () => {
@@ -133,8 +133,7 @@ export const useResize = (
   ) => {
     event.preventDefault()
     setIsResizing(true)
-    const { width: initialWidth, height: initialHeight } =
-      imageContainer.getBoundingClientRect()
+    const { width: initialWidth, height: initialHeight } = dimensions
 
     const initialValues = {
       initialY: event.clientY,

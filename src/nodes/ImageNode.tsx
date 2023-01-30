@@ -3,6 +3,7 @@ import {
   EditorConfig,
   Spread,
   SerializedLexicalNode,
+  LexicalNode,
 } from "lexical"
 import ImageComponent from "../ImageComponent"
 
@@ -139,5 +140,8 @@ class ImageNode extends DecoratorNode<JSX.Element> {
     )
   }
 }
+
+export const $isImageNode = (node: LexicalNode): node is ImageNode =>
+  node.getType() === "image"
 
 export default ImageNode
