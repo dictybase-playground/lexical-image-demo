@@ -5,7 +5,7 @@ import { ImageDimensionsAtom } from "./state"
 import LoadingDisplay from "./LoadingDisplay"
 import ErrorDisplay from "./ErrorDisplay"
 import ImageResizer from "./ImageResizer"
-import useImageStyles from "./imageStyles"
+import useImageStyles from "./useImageStyles"
 
 export type ImageProperties = {
   src: string

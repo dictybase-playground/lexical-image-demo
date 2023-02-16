@@ -26,6 +26,7 @@ export type ImageResizerProperties = {
 const ImageResizer = ({ imageContainer, onResize }: ImageResizerProperties) => {
   const classes = useResizerStyles()
   const { onMouseDown } = useResize(imageContainer, onResize)
+
   return (
     <>
       {directions.map((direction) => (

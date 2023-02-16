@@ -5,7 +5,10 @@ import { Button, CircularProgress, PropTypes } from "@material-ui/core"
 import SaveIcon from "@material-ui/icons/Save"
 import DoneIcon from "@material-ui/icons/Done"
 import ErrorIcon from "@material-ui/icons/Error"
-import { ButtonStateAtom, ButtonStates } from "./state"
+import {
+  ButtonStateAtom,
+  ButtonStates,
+} from "../../../packages/resizable-image/src/state"
 import useButtonStyles from "./useButtonStyles"
 
 type TextSlideProperties = {

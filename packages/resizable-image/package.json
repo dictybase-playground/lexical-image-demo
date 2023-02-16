@@ -1,0 +1,27 @@
+{
+  "name": "resizable-image",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.tsx",
+  "scripts": {
+    "lint": "eslint --ext .jsx,.js,.ts,.tsx src/"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "framer-motion": "^6.5.1",
+    "jotai": "^1.12.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.52",
+    "@types/react-dom": "17.0.18",
+    "eslint": "^8.31.0",
+    "eslint-config-dictybase": "*",
+    "tsconfig": "*",
+    "typescript": "^4.9.3",
+    "vite": "^3.1.0"
+  }
+}

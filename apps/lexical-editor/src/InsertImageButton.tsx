@@ -1,7 +1,7 @@
 import { Button, Dialog } from "@material-ui/core"
 import AddIcon from "@material-ui/icons/Add"
 import { useAtom } from "jotai"
-import { dialogOpenAtom } from "./state"
+import { dialogOpenAtom } from "../../../packages/resizable-image/src/state"
 import ImageDialogContents from "./ImageDialogContents"
 
 const InsertImageButton = () => {
